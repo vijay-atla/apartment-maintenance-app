@@ -1,3 +1,9 @@
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\BackendApplication.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\config\SecurityConfig.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\controller\TestController.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\controller\UserController.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\dto\RegisterRequestDTO.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\entity\User.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\repository\UserRepository.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\service\impl\UserServiceImpl.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\service\interfaces\UserService.java

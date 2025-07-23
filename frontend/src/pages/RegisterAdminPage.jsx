@@ -1,14 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios'
 import './RegisterAdminPage.css';
+import Swal from 'sweetalert2';
+
 
 const RegisterAdminPage = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
+  const [serverMsg, setServerMsg] = useState('');
   const password = watch('password');
 
-  const onSubmit = (data) => {
-    console.log('Register Admin Data:', data);
+  const onSubmit = async (data) => {
+    try {
+  const payload = {
+    firstName: data.firstName,
+    lastName: data.lastName,
+    email: data.email,
+    phone: data.phone,
+    password: data.password
   };
+
+  const response = await axios.post('http://localhost:8080/api/register-admin', payload);
+
+  Swal.fire({
+    icon: 'success',
+    title: 'Registered Successfully!',
+    text: 'You can now proceed to login.',
+    confirmButtonColor: '#3085d6'
+  });
+
+  reset();
+} catch (error) {
+  console.error(error);
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: error.response?.data?.message || 'Registration failed.',
+    confirmButtonColor: '#d33'
+  });
+}
+
+  }
+
+
 
   return (
     <div className="register-container">

@@ -1,3 +1,9 @@
 com\apartment\maintenance\controller\TestController.class
-com\apartment\maintenance\config\SecurityConfig.class
 com\apartment\maintenance\BackendApplication.class
+com\apartment\maintenance\service\impl\UserServiceImpl.class
+com\apartment\maintenance\service\interfaces\UserService.class
+com\apartment\maintenance\dto\RegisterRequestDTO.class
+com\apartment\maintenance\repository\UserRepository.class
+com\apartment\maintenance\config\SecurityConfig.class
+com\apartment\maintenance\controller\UserController.class
+com\apartment\maintenance\entity\User.class
