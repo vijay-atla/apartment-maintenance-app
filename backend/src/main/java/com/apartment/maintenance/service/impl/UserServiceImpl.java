@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.apartment.maintenance.dto.LoginRequestDTO;
 import com.apartment.maintenance.dto.RegisterRequestDTO;
 import com.apartment.maintenance.entity.User;
 import com.apartment.maintenance.repository.UserRepository;
@@ -35,9 +36,26 @@ public class UserServiceImpl implements UserService {
         user.setEmail(request.getEmail());
         user.setPhone(request.getPhone());
         user.setPassword(passwordEncoder.encode(request.getPassword()));  // Hash password
-        user.setRole("ADMIN");
+        user.setRole("RESIDENCY_ADMIN");
 
         // Save to DB
         return userRepository.save(user);
     }
+
+    @Override
+    public User loginResidencyAdmin(LoginRequestDTO request) {
+        User user = userRepository.findByEmail(request.getEmail())
+            .orElseThrow(() -> new RuntimeException("Email not found"));
+
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
+
+        if (!"RESIDENCY_ADMIN".equalsIgnoreCase(user.getRole())) {
+            throw new RuntimeException("Unauthorized role");
+        }
+
+        return user;
+    }
+
 }

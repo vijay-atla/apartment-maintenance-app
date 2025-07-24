@@ -1,10 +1,13 @@
 package com.apartment.maintenance.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -33,6 +36,10 @@ public class User {
     @Column(nullable = false)
     private String role;
 
+    @ManyToMany(mappedBy = "admins")
+    private List<Society> societies;
+
+
     // Constructors
     public User() {}
 
@@ -42,7 +49,7 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.password = password;
-        this.role = "ADMIN";
+        this.role = "RESIDENCY_ADMIN";
     }
 
     // Getters and Setters
@@ -65,4 +72,12 @@ public class User {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public List<Society> getSocieties() {
+        return societies;
+    }
+
+    public void setSocieties(List<Society> societies) {
+        this.societies = societies;
+    }
 }

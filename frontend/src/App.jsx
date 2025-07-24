@@ -11,7 +11,8 @@ import landingBg from './assets/home_page_bg.png';
 import RegisterLandingPage from './pages/RegisterLandingPage';
 import RegisterAdminPage from './pages/RegisterAdminPage';
 import SocietyRegisterPage from './pages/SocietyRegisterPage';
-
+import LoginResidencyAdminPage from './pages/LoginResidencyAdminPage';
+import ResidencyAdminDashboard from './pages/ResidencyAdminDashboard';
 
 function App() {
 
@@ -31,6 +32,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterLandingPage />} />
           <Route path="/register-admin" element={<RegisterAdminPage />} />
+          <Route path="/login-residency-admin" element={<LoginResidencyAdminPage />} />
+          <Route path="/residency-admin-dashboard" element={<ResidencyAdminDashboard />} />
+
           <Route path="/register/society" element={<SocietyRegisterPage />} />
         </Routes>
       </BrowserRouter>

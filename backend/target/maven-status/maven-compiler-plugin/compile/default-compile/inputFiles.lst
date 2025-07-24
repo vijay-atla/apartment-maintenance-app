@@ -1,9 +1,17 @@
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\BackendApplication.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\config\SecurityConfig.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\controller\SocietyController.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\controller\TestController.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\controller\UserController.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\dto\LoginRequestDTO.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\dto\LoginResponseDTO.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\dto\RegisterRequestDTO.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\entity\Address.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\entity\Society.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\entity\User.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\repository\SocietyRepository.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\repository\UserRepository.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\service\impl\SocietyServiceImpl.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\service\impl\UserServiceImpl.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\service\interfaces\SocietyService.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\service\interfaces\UserService.java

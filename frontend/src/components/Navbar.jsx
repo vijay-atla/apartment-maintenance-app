@@ -1,52 +1,54 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import './Navbar.css';
 
 export default function Navbar() {
-  const navbarContainerStyle = {
-    padding: '5px',
-  };
+  const navigate = useNavigate();
 
-  const navbarStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '20px 40px',
-    backgroundColor: '#282c34',
-    color: '#fff',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-    borderRadius: '12px',
-  };
+  // Detect logged-in user
+  const resident = JSON.parse(localStorage.getItem("resident"));
+  const residencyAdmin = JSON.parse(localStorage.getItem("residencyAdmin"));
+  const superAdmin = JSON.parse(localStorage.getItem("superAdmin"));
 
-  const leftLinksStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '50px',
-    marginLeft: '50px',
-  };
+  const currentUser = resident || residencyAdmin || superAdmin;
+  const role = resident ? "resident" : residencyAdmin ? "residency-admin" : superAdmin ? "super-admin" : null;
 
-  const rightLinksStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '50px',
-    marginRight: '50px',
-  };
-
-  const linkStyle = {
-    color: '#fff',
-    textDecoration: 'none',
-    fontSize: '16px',
-    transition: 'color 0.3s',
+  const handleLogout = () => {
+    localStorage.removeItem("resident");
+    localStorage.removeItem("residencyAdmin");
+    localStorage.removeItem("superAdmin");
+    navigate('/');
   };
 
   return (
-    <div style={navbarContainerStyle}>
-      <nav style={navbarStyle}>
-        <div style={leftLinksStyle}>
-          <Link to="/" style={linkStyle}>Home</Link>
-          <Link to="/about" style={linkStyle}>About</Link>
+    <div className="navbar-container">
+      <nav className="navbar">
+        <div className="navbar-left">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/about" className="nav-link">About</Link>
+          {currentUser && role === "resident" && <Link to="/resident-dashboard" className="nav-link">Dashboard</Link>}
+          {currentUser && role === "residency-admin" && <Link to="/residency-admin-dashboard" className="nav-link">Dashboard</Link>}
+          {currentUser && role === "super-admin" && <Link to="/super-admin-dashboard" className="nav-link">Dashboard</Link>}
         </div>
-        <div style={rightLinksStyle}>
-          <Link to="/login" style={linkStyle}>Login</Link>
-          <Link to="/register" style={linkStyle}>Register</Link>
+
+        <div className="navbar-right">
+          {!currentUser ? (
+            <>
+              <li className="nav-item dropdown">
+                <div className="nav-link login-hover">Login ▾</div>
+                <div className="dropdown-content">
+                  <a href="/login-resident">Resident Login</a>
+                  <a href="/login-residency-admin">Residency Admin Login</a>
+                  <a href="/login-super-admin">Super Admin Login</a>
+                </div>
+              </li>
+              <Link to="/register" className="nav-link">Register</Link>
+            </>
+          ) : (
+            <>
+              <span className="nav-link">Hello, {currentUser.fullName?.split(' ')[0]}</span>
+              <button className="logout-btn" onClick={handleLogout}>Logout</button>
+            </>
+          )}
         </div>
       </nav>
     </div>
