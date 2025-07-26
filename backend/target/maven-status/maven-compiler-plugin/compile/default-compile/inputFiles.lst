@@ -3,6 +3,7 @@ F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\con
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\controller\SocietyController.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\controller\TestController.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\controller\UserController.java
+F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\dto\AddSocietyRequestDTO.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\dto\LoginRequestDTO.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\dto\LoginResponseDTO.java
 F:\apartment-maintenance-app\backend\src\main\java\com\apartment\maintenance\dto\RegisterRequestDTO.java

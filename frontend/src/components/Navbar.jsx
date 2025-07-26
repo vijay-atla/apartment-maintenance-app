@@ -36,9 +36,9 @@ export default function Navbar() {
               <li className="nav-item dropdown">
                 <div className="nav-link login-hover">Login ▾</div>
                 <div className="dropdown-content">
-                  <a href="/login-resident">Resident Login</a>
-                  <a href="/login-residency-admin">Residency Admin Login</a>
-                  <a href="/login-super-admin">Super Admin Login</a>
+                  <a href="/login-resident">Resident</a>
+                  <a href="/login-residency-admin">Residency Admin</a>
+                  <a href="/login-super-admin">Super Admin</a>
                 </div>
               </li>
               <Link to="/register" className="nav-link">Register</Link>

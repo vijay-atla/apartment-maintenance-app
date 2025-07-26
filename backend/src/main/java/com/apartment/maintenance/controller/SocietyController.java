@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.apartment.maintenance.dto.AddSocietyRequestDTO;
 import com.apartment.maintenance.entity.Society;
 import com.apartment.maintenance.service.interfaces.SocietyService;
 
@@ -24,8 +25,15 @@ public class SocietyController {
     private SocietyService societyService;
 
     @PostMapping("/add")
-    public ResponseEntity<Society> addSociety(@RequestBody Society society) {
-        return ResponseEntity.ok(societyService.addSociety(society));
+    public ResponseEntity<?> addSociety(@RequestBody AddSocietyRequestDTO request) {
+        System.out.println("Admin ID from request = " + request.getAdminId());
+
+        try {
+            Society savedSociety = societyService.addSociety(request);
+            return ResponseEntity.ok(savedSociety);
+        } catch (RuntimeException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 
     @GetMapping

@@ -1,5 +1,6 @@
 .admin-dashboard-container {
   padding: 40px;
+  margin-left: 100px;
 }
 
 .society-cards {
@@ -7,6 +8,7 @@
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
+  margin-left: 40px;
 }
 
 .society-card {
@@ -20,4 +22,20 @@
 
 .society-card h3 {
   margin-top: 0;
+}
+
+.add-society-btn {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background-color 0.3s;
+}
+
+.add-society-btn:hover {
+  background-color: #218838;
 }

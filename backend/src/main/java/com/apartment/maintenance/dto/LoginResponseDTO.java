@@ -5,15 +5,17 @@ public class LoginResponseDTO {
     private String role;
     private String email;
     private String fullName;
+    private Long userId;
 
     public LoginResponseDTO() {
     }
 
-    public LoginResponseDTO(String message, String role, String email, String fullName) {
+    public LoginResponseDTO(String message, String role, String email, String fullName, Long userId) {
         this.message = message;
         this.role = role;
         this.email = email;
         this.fullName = fullName;
+        this.userId = userId;
     }
 
     // Getters and setters
@@ -48,5 +50,13 @@ public class LoginResponseDTO {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

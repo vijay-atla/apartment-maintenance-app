@@ -13,19 +13,14 @@ import RegisterAdminPage from './pages/RegisterAdminPage';
 import SocietyRegisterPage from './pages/SocietyRegisterPage';
 import LoginResidencyAdminPage from './pages/LoginResidencyAdminPage';
 import ResidencyAdminDashboard from './pages/ResidencyAdminDashboard';
+import AddSocietyPage from './pages/AddSocietyPage';
+import SocietyDashboard from './pages/SocietyDashboard';
 
 function App() {
 
-  const appStyle = {
-    minHeight: '100vh',
-    backgroundImage: `url(${landingBg})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
-
 
   return (
-    <div style={appStyle}>
+    <div className="app-container">
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -34,6 +29,8 @@ function App() {
           <Route path="/register-admin" element={<RegisterAdminPage />} />
           <Route path="/login-residency-admin" element={<LoginResidencyAdminPage />} />
           <Route path="/residency-admin-dashboard" element={<ResidencyAdminDashboard />} />
+          <Route path="/add-society" element={<AddSocietyPage />} />
+          <Route path="/society-dashboard/:id" element={<SocietyDashboard />} />
 
           <Route path="/register/society" element={<SocietyRegisterPage />} />
         </Routes>

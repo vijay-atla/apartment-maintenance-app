@@ -13,5 +13,6 @@ com\apartment\maintenance\controller\UserController.class
 com\apartment\maintenance\entity\User.class
 com\apartment\maintenance\service\interfaces\SocietyService.class
 com\apartment\maintenance\repository\UserRepository.class
+com\apartment\maintenance\dto\AddSocietyRequestDTO.class
 com\apartment\maintenance\controller\SocietyController.class
 com\apartment\maintenance\entity\Society.class

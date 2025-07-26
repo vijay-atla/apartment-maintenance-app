@@ -47,7 +47,8 @@ public class UserController {
                 "Login successful",
                 user.getRole(),
                 user.getEmail(),
-                user.getFirstName() + " " + user.getLastName()
+                user.getFirstName() + " " + user.getLastName(),
+                user.getId()
             );
 
             return ResponseEntity.ok(response);

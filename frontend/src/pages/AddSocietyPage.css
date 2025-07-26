@@ -1,0 +1,42 @@
+.add-society-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.add-society-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-title{
+    margin-left: 30%;
+    margin-bottom: 20px;
+}
+
+
+
+.add-society-form input,
+.add-society-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.add-society-form button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-society-form button:hover {
+  background-color: #0056b3;
+}
