@@ -74,3 +74,21 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+.floor-group {
+  margin-bottom: 20px;
+}
+
+.flat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flat-card {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 3px #aaa;
+}

@@ -18,6 +18,7 @@ const SocietyDashboard = () => {
   const [buildingName, setBuildingName] = useState('');
   const [flatNumber, setFlatNumber] = useState('');
   const [floorNumber, setFloorNumber] = useState('');
+  const [liftAvailable, setLiftAvailable] = useState(false);
 
   useEffect(() => {
     if (societyId) fetchBuildings();
@@ -51,6 +52,9 @@ const SocietyDashboard = () => {
       await axios.post('http://localhost:8080/api/buildings', {
         name: buildingName,
         societyId: societyId,
+        floors: floorNumber,
+        totalUnits: flatNumber,
+        liftAvailable: liftAvailable,
       });
       Swal.fire('Success', 'Building added!', 'success');
       setBuildingName('');
@@ -106,13 +110,28 @@ const SocietyDashboard = () => {
             <button className="add-btn" onClick={() => setShowFlatModal(true)}>
               + Add Flat
             </button>
-            <div className="flat-list">
-              {flats.map((f) => (
-                <div key={f.id} className="flat-card">
-                  🏠 Flat {f.flatNumber} - Floor {f.floorNumber}
+            <div className="flat-list-grouped">
+              
+              {Object.entries(
+                flats.reduce((acc, flat) => {
+                  if (!acc[flat.floorNumber]) acc[flat.floorNumber] = [];
+                  acc[flat.floorNumber].push(flat);
+                  return acc;
+                }, {})
+              ).map(([floor, flatsOnFloor]) => (
+                <div key={floor} className="floor-group">
+                  <h4>Floor {floor}</h4>
+                  <div className="flat-row">
+                    {flatsOnFloor.map((f) => (
+                      <div key={f.id} className="flat-card">
+                        🏠 {f.flatNumber}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
+
           </div>
         )}
 
@@ -126,7 +145,23 @@ const SocietyDashboard = () => {
                 placeholder="Building Name"
                 value={buildingName}
                 onChange={(e) => setBuildingName(e.target.value)}
+              />  
+              <input
+                type="number"
+                placeholder="Number of Floors"
+                value={floorNumber}
+                onChange={(e) => setFloorNumber(e.target.value)}
               />
+
+              <label style={{ marginTop: '10px' }}>
+                <input
+                  type="checkbox"
+                  checked={liftAvailable}
+                  onChange={(e) => setLiftAvailable(e.target.checked)}
+                />{' '}
+                Lift Available
+              </label>
+
               <div className="modal-buttons">
                 <button onClick={handleAddBuilding}>Add</button>
                 <button onClick={() => setShowBuildingModal(false)}>Cancel</button>
