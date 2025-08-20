@@ -28,5 +28,12 @@ jobs:
           java-version: "17"
           cache: maven
 
+      # 👇 add these two steps
+      - name: Make mvnw executable
+        run: chmod +x mvnw
+
+      - name: Normalize line endings for mvnw (Windows-safe)
+        run: sed -i 's/\r$//' mvnw
+
       - name: Build & Test
         run: ./mvnw -B verify
