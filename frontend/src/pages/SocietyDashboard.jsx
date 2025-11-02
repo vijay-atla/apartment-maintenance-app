@@ -4,6 +4,7 @@ import './SocietyDashboard.css';
 import Sidebar from '../components/SocietySidebar';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { api } from "../apiClient";
 
 const SocietyDashboard = () => {
   const { id: societyId } = useParams();
@@ -26,7 +27,7 @@ const SocietyDashboard = () => {
 
   const fetchBuildings = async () => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/buildings/${societyId}`);
+      const res = await api.get(`/api/buildings/${societyId}`);
       setBuildings(res.data);
     } catch (err) {
       console.error('Error fetching buildings', err);
@@ -35,7 +36,7 @@ const SocietyDashboard = () => {
 
   const fetchFlats = async (buildingId) => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/flats/${buildingId}`);
+      const res = await api.get(`/api/flats/${buildingId}`);
       setFlats(res.data);
     } catch (err) {
       console.error('Error fetching flats', err);
@@ -49,7 +50,7 @@ const SocietyDashboard = () => {
 
   const handleAddBuilding = async () => {
     try {
-      await axios.post('http://localhost:8080/api/buildings', {
+      await api.post("/api/buildings", {
         name: buildingName,
         societyId: societyId,
         floors: floorNumber,
@@ -67,7 +68,7 @@ const SocietyDashboard = () => {
 
   const handleAddFlat = async () => {
     try {
-      await axios.post('http://localhost:8080/api/flats', {
+      await api.post("/api/flats", {
         flatNumber,
         floorNumber,
         buildingId: selectedBuilding.id,

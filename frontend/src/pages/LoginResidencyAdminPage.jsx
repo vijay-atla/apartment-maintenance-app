@@ -4,6 +4,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './LoginResidencyAdminPage.css';
+import { api } from "../apiClient";
 
 const LoginResidencyAdminPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -11,7 +12,7 @@ const LoginResidencyAdminPage = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post('http://localhost:8080/api/login-admin', data);
+      const res = await api.post("/api/login-admin", data);
       Swal.fire("Login Success", "Welcome Residency Admin!", "success").then(() => {
         localStorage.setItem("residencyAdmin", JSON.stringify(res.data));
         navigate('/residency-admin-dashboard');

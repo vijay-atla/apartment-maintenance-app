@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { api } from "../apiClient";
 
 
 import axios from 'axios';
@@ -11,7 +12,7 @@ const ResidencyAdminDashboard = () => {
 
   useEffect(() => {
     if (admin?.userId) {
-      axios.get(`http://localhost:8080/api/societies/admin/${admin.userId}`)
+      api.get(`/api/societies/admin/${admin.userId}`)
         .then(res => setSocieties(res.data))
         .catch(err => console.error("Error fetching societies", err));
     }

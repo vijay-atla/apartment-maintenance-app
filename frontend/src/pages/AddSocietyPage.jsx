@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { api } from "../apiClient";
 import Swal from 'sweetalert2';
 import './AddSocietyPage.css';
 
@@ -58,7 +59,7 @@ const AddSocietyPage = () => {
     };
 
     try {
-      await axios.post("http://localhost:8080/api/societies/add", societyData);
+      await api.post("/api/societies/add", societyData);
       Swal.fire("Success", "Society added successfully!", "success");
       reset();
     } catch (err) {

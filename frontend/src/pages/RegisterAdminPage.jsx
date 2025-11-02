@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios'
 import './RegisterAdminPage.css';
 import Swal from 'sweetalert2';
+import { api } from "../apiClient";
 
 
 const RegisterAdminPage = () => {
@@ -20,7 +21,7 @@ const RegisterAdminPage = () => {
     password: data.password
   };
 
-  const response = await axios.post('http://localhost:8080/api/register-admin', payload);
+  const response = await api.post("/api/register-admin", payload);
 
   Swal.fire({
     icon: 'success',
