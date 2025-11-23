@@ -7,7 +7,9 @@ import axios from 'axios';
 import './ResidencyAdminDashboard.css';
 
 const ResidencyAdminDashboard = () => {
-  const admin = JSON.parse(localStorage.getItem("residencyAdmin"));
+  const [admin] = useState(() => {
+    return JSON.parse(localStorage.getItem("residencyAdmin"));
+  });
   const [societies, setSocieties] = useState([]);
 
   useEffect(() => {
@@ -16,7 +18,7 @@ const ResidencyAdminDashboard = () => {
         .then(res => setSocieties(res.data))
         .catch(err => console.error("Error fetching societies", err));
     }
-  }, [admin]);
+  }, [admin?.userId]);
 
   return (
     <div className="admin-dashboard-container">
