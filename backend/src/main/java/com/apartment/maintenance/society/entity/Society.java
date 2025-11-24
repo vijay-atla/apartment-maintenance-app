@@ -13,8 +13,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "society", schema = "app")
 public class Society {
 
     @Id
@@ -37,7 +39,7 @@ public class Society {
 
     @ManyToMany
     @JoinTable(
-        name = "society_admins",
+        name = "society_admin",
         joinColumns = @JoinColumn(name = "society_id"),
         inverseJoinColumns = @JoinColumn(name = "admin_id")
     )
