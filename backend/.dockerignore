@@ -1,0 +1,24 @@
+# build outputs
+target/
+build/
+
+# VCS & tooling
+.git
+.gitignore
+.github/
+.idea/
+.vscode/
+.gradle/
+.mvn/wrapper/MavenWrapperDownloader.java
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# dependencies & caches
+node_modules/
+
+# local secrets / configs
+src/main/resources/application.properties
+src/main/resources/application-dev.properties
+src/main/resources/application-prod.properties

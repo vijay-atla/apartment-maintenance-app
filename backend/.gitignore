@@ -1,0 +1,7 @@
+# backend secrets (don’t commit)
+backend/src/main/resources/application.properties
+backend/src/main/resources/application-dev.properties
+backend/src/main/resources/application-prod.properties
+
+# backend build outputs
+backend/target/
